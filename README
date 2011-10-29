@@ -8,4 +8,20 @@ Language:
 =========================
 Ruby
 
+Libraries
+=========================
+Sinatra
+mongoid
+haml
+
+Roadmap
+========================
+- Get the basic MVC thing done         |==            |
+- Add configuration support            |              |
+- Add feed reading capability          |              | 
+- Feed storage                         |              |
+- Complete UI                          |              |
+- Add bookmark, category               |              |
+- Add social aspect to it.             |              |
+
 
