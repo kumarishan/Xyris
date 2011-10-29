@@ -1,0 +1,16 @@
+user
+==========
+
+Represent other users profile
+
+Actions
+======================
+- get the user profile
+- get the currents feeds on user's dashboard
+- categories in which the user is sharing
+- feed links based on categories
+
+
+Views
+======================
+- 
