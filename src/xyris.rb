@@ -21,23 +21,34 @@ REQUEST = Request.instance
 
 LOG = Logger.new('Xyris.log', 0, 100*1024*1024)
 
-get '/' do
-   if( session['userId'] == nil)
-#     redirect to('/login')
-   end
-   RESPONSE.init("home-page")
-   REQUEST.init("home-page")
-   LOG.debug("The request is set to #{REQUEST.name} and response is set to #{RESPONSE.name}") 
-   USER.getHomePage()    
-   'Hello universe! Welcome to the world of social feed reader'
-   RESPONSE.view()
+before do
+  $session = session
+  unless $session['userId'] or request.path_info == '/login'
+    redirect to('/login')
+  end
 end
 
-get '/login' do
+get '/' do
+  RESPONSE.init("home-page")
+  REQUEST.init("home-page")
+  LOG.debug("The request is set to #{REQUEST.name} and response is set to #{RESPONSE.name}") 
+  USER.getHomePage()    
+  RESPONSE.view()
+end
+
+get '/login', :provides => 'html' do
   'Dude! you have to login first'
-   RESPONSE.init('login')
-   REQUEST.init('login')
-   RESPONSE.view() 
+  RESPONSE.init('login')
+  REQUEST.init('login') 
+  LOGIN.getLoginForm()
+  RESPONSE.view() 
+end
+
+post '/login' do 
+  RESPONSE.init('logged-in')
+  REQUEST.init('log-in')
+  LOGIN.login()
+  redirect to('/')   
 end
 
 get '/feeds' do 

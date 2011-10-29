@@ -1,0 +1,12 @@
+!!! XML
+!!!
+%html
+  %head
+    %title Xyris
+  %body
+    %form{:action => "/login", :method => "post"}
+      username: 
+      %input{:type => "text", :name => "username"}
+      passeord: 
+      %input{:type =>"password", :name => "password"}
+      %input{:type => "submit", :value => "Login"}

@@ -8,7 +8,7 @@ class User
   end
 
   def getHomePage()
-    RESPONSE.add('home-page', "Home page")
+    RESPONSE.add('home-page', "Hello Universe! Welcome to the world of social feed reader" )
   end
 
 end
