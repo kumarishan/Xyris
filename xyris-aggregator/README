@@ -1,0 +1,24 @@
+xyris-classifier
+=====================
+
+okay this requires you to install following gems
+
+phrasie
+bishop
+yaml
+anemone
+open-uri
+
+there are three parts in the code
+the current uncommented part uses phrasie to extract imp words from wikipedia articles 
+
+To test Bayesin classsfier
+comment out the term extraction section(which is uncommented part now) and then uncomment the last secition ie
+after and including the line
+
+classify = Bishop::Bayes::new { |probs,ignore| Bishop::robinson(probs.......
+
+it wil use the already trained and stored file of bayes classifier. the stored data is in bayesdata,yml which it automatically picks.
+
+I trained by crawling string theroy wikipedia article till depth 1 and I am tryign to classify the same...
+u can try classifying other by chanign the url in the link in Anemone.cralw("...") of the last secion
